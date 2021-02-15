@@ -9,7 +9,7 @@ cloudinary.config({
   api_secret:process.env.CLOUD_SECRET
 })
 
-const storeImg = new CloudinaryStorage({
+const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'image-upload-wines',
@@ -17,7 +17,7 @@ const storeImg = new CloudinaryStorage({
   }
 })
 
-const uploader = multer({ storeImg });
+const uploader = multer({ storage });
 
 module.exports = {
   uploader: uploader,

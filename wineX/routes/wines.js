@@ -3,6 +3,7 @@ const Wine = require("../models/Wine");
 const User = require("../models/User.model");
 const Shop = require("../models/Shop");
 const Comment = require("../models/Comment");
+const { uploader, cloudinary } = require("../config/cloudinary");
 
 
 /* MainWines Route (Logged In) */
@@ -13,7 +14,7 @@ router.get("/addWine", (req, res, next) => {
   res.render("wineRoute/addWine");
 });
 
-router.post("/addWine", (req,res) => {
+router.post("/addWine", uploader.single('photo'), (req,res) => {
     Wine.create({
       winename: req.body.winename,
       year: req.body.year,
@@ -22,8 +23,8 @@ router.post("/addWine", (req,res) => {
       bio: req.body.bio,
       country: req.body.country,
        imgPath: req.file.path,
-       imgName:req.file.originalname,
-       publicId: req.file.filename,
+      imgName:req.file.originalname,
+     publicId: req.file.filename,
       owner: req.body.author,
       shop: req.body.shop,
       comments: req.body.comments

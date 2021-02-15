@@ -11,19 +11,38 @@
   <input type="text" name="price" id="price">
 
   <label for="colour">Colour:</label>
-  <input type="text" name="colour" id="colour">
+<select id="colour" name="colour" form="colour">
+  <option value="red">red</option>
+  <option value="white">white</option>
+  <option value="rose">rose</option>
+  <option value="orange">orange</option>
+</select>
 
-   <label for="bio">Bio:</label>
-  <input type="text" name="bio" id="bio">
+ <label>
+    Bio:
+    <select  name="bio" id="bio">
+      <option value="">---</option>
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+  </label>
 
    <label for="country">Country:</label>
   <input type="text" name="country" id="country">
 
+<!--
    <label for="shop">Shop:</label>
   <input type="text" name="shop" id="shop">
+-->
 
 <label for="photo">Wine Snap: </label>
   <input type="file" name="photo" id="photo">
+
+<label for="rating">Rating:</label>
+  <input type="number" name="rating" id="rating" min="1" max="5">
+
+    <label for="comment">Impression:</label>
+  <input type="text" name="comment" id="comment">
 
   <button type="submit">Add Wine</button>
 

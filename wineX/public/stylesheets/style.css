@@ -8,4 +8,10 @@ a {
 h1 {
   color: 15px; }
 
+
+  .addWineWrapper{
+    display: flex;
+    flex-direction: column;
+  }
+
 /*# sourceMappingURL=style.css.map */

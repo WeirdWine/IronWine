@@ -4,9 +4,6 @@ const bcrypt = require('bcrypt');
 
 router.get("/signup", (req, res, next) => {
     res.render("user/signup")
-    .catch(err => {
-        console.log(err);
-      })
   });
 
 router.post("/signup", (req, res, next) => {

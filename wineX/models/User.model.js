@@ -10,10 +10,7 @@ const userSchema = new Schema({
   },
   password: String,
   dateOfBirth: Date,
-  email: {
-    type: String,
-    unique: true
-  },
+  email: String,
   imgPath: String 
 });
 

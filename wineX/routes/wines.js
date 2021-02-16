@@ -30,8 +30,8 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
       publicId: req.file.filename,
      owner: req.body.author,
       // shop: req.body.shop,
-    comments:[{comments: req.body.comments}],
-    /* user: req.params.id*/ 
+    comments:[{  user: req.user.id, comments: req.body.comments}],
+    
     cheese: null,
 
 
@@ -39,8 +39,9 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
 
     }).then((dataToDB)=> {
         console.log('Data has been successfully added to the Dabase', dataToDB)
-        // res.redirect(`/wines/${dataToDB._id}`);
-        res.redirect("/");
+     
+  
+        res.redirect(`/wines/${dataToDB._id}`);
     }).catch(error => {
       console.log('sth went wrong while uploading data to the DB', error);
     })
@@ -61,8 +62,12 @@ router.get("/wines", (req,res) => {
 
 router.get("/wines/:id", (req,res) => {
   Wine.findById(req.params.id).then((selectedwineFromDB) => {
+    let bgColour = '';
+    if(selectedwineFromDB.colour === 'red' ){
+      bgColour = 'green';
+    }
       console.log(selectedwineFromDB.winename);
-      res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB})
+      res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB, farbe:bgColour})
   })
 })
 

@@ -4,7 +4,7 @@ const User = require("./User.model");
 const Shop = require("./Shop");
 
 const wineSchema = new Schema({
-      wineName: String,
+      winename: String,
       year: String,
       price: Number,
       colour: String,
@@ -13,6 +13,7 @@ const wineSchema = new Schema({
       imgPath: String,
       publicId: String,
       cheese: String,
+      rating: Number,
       owner: [{type: Schema.Types.ObjectId, ref: User}],
       shop: [{type: Schema.Types.ObjectId, ref: Shop}],
      

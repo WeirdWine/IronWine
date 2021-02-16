@@ -28,11 +28,15 @@ app.locals.title = `${projectName}`;
 const index = require("./routes/index");
 app.use("/", index);
 
+
 const signup = require("./routes/signup")
-app.use("/", signup)
+app.use("/", signup);
 
 const login = require("./routes/login")
-app.use("/", login)
+app.use("/", login);
+
+const wine = require("./routes/wines.js");
+app.use("/", wine);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

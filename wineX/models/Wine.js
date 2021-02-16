@@ -4,13 +4,12 @@ const User = require("./User.model");
 const Shop = require("./Shop");
 
 const wineSchema = new Schema({
-      winename: String,
+      wineName: String,
       year: String,
       price: Number,
       colour: String,
       bio: Boolean,
       country: String,
-      imgName: String,
       imgPath: String,
       publicId: String,
       cheese: String,

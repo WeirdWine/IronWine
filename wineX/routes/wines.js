@@ -15,7 +15,7 @@ router.get("/addwine", (req, res, next) => {
   res.render("wineRoute/addWine");
 });
 
-router.post("/addwine", uploader.single('photo'), async (req,res) => {
+router.post("/addwine", uploader.single('photo'), (req,res) => {
   console.log(req.file);
     Wine.create({
       /*

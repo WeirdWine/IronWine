@@ -16,6 +16,10 @@ router.get("/addwine", (req, res, next) => {
 
 router.post("/addwine", uploader.single('photo'), (req,res) => {
  
+if(req.body.colour === "red"){
+    cheese = 'tata';
+}
+
   console.log(req.body.comments);
     Wine.create({
      winename: req.body.winename,

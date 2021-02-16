@@ -11,11 +11,16 @@ const Shop = require("../models/Shop");
 
 
 router.get("/addwine", (req, res, next) => {
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+    }
+
   res.render("wineRoute/addWine");
 });
 
 router.post("/addwine", uploader.single('photo'), (req,res) => {
- 
+
   console.log(req.body.comments);
     Wine.create({
      winename: req.body.winename,
@@ -48,6 +53,11 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
 })
 
 router.get("/wines", (req,res) => {
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+    }
+
   Wine.find().then(winesFromDB => {
       console.log(winesFromDB)
       res.render('wineRoute/wines', {allWines:winesFromDB })

@@ -11,7 +11,9 @@ const userSchema = new Schema({
   password: String,
   dateOfBirth: Date,
   email: String,
-  imgPath: String 
+  imgName: String,
+  imgPath: String,
+  publicId: String,
 });
 
 const User = model("User", userSchema);

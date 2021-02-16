@@ -1,13 +1,15 @@
 const router = require("express").Router();
+const { uploader, cloudinary } = require("../config/cloudinary");
 const User = require ("../models/User.model")
 const bcrypt = require('bcrypt');
+const passport = require('passport');
 
 router.get("/signup", (req, res, next) => {
     res.render("user/signup")
   });
 
-router.post("/signup", (req, res, next) => {
-    const {username, password, email, dateOfBirth, imgPath} = req.body
+router.post("/signup", uploader.single("photo"), (req, res, next) => {
+    const {firstName, surname, username, password, email, dateOfBirth, imgPath} = req.body
     
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(password, salt)
@@ -26,6 +28,11 @@ router.post("/signup", (req, res, next) => {
     });
     }
 
+    if (dateOfBirth === null) {
+      return res.render("user/signup", { message: "You must enter a date of birth to enter"
+    });
+    }
+
     if (userDateOfBirth > (thisYear - 19)) {
         return res.render("user/signup", { message: "You must be of legal drinking age (18+) to enter"
     });
@@ -34,20 +41,27 @@ router.post("/signup", (req, res, next) => {
     User.findOne({ username: username })
     .then(userFromDB => {
       if (userFromDB !== null) {
-        res.render("user/login", { message: "Username is already taken" });
+        res.render("user/signup", { message: "Username is already taken. Please choose another." });
       } else {
         User.create({
+            firstName: firstName,
+            surname: surname,
             username: username,
             password: hash,
             email: email,
             dateOfBirth: dateOfBirth,
-            imgPath: imgPath})
+            imgName: req.file.originalname,
+            imgPath: req.file.path,
+            publicId: req.file.filename
+          })
         .then(newUser => {
-            
-            res.render("user/login", {name: newUser})
-        })
-        .catch(err => {
-            next(err);
+            req.login(newUser, err => {
+              if (err) {
+                next(err)
+              } else {
+                res.redirect("/wines")
+              }
+            })
         })
       }
 })

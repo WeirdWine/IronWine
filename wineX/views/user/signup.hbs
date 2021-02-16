@@ -1,0 +1,29 @@
+<h2>Sign up page</h2>
+
+<form action="/signup" method="POST"\>
+    <label for="firstName">First name</label> 
+  <input id="firstName" type="text" name="firstName">
+  <br>
+  <label for="surname">Surname</label> 
+  <input id="surname" type="text" name="surname">
+  <br>
+  <label for="username">User name</label> 
+  <input id="username" type="text" name="username">
+  <br>
+  <label for="email">Email</label> 
+  <input id="email" type="email" name="email">
+  <br>
+  <label for="password">Password</label> 
+  <input id="password" type="password" name="password">
+  <br>
+  <label for="dateOfBirth">Date of birth</label> 
+  <input id="dateOfBirth" type="date" name="dateOfBirth">
+  <br>
+  <label for="imgPath">Photo </label>
+  <input type="file" name="photo" id="photo">
+  <br>
+  <button type="submit">Create account</button>
+</form>
+{{#if message}}
+  <p style='color: red'>{{message}}</p>
+{{/if}}

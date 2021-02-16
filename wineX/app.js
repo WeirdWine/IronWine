@@ -19,14 +19,21 @@ const app = express();
 require("./config")(app);
 
 // default value for title local
-const projectName = "wineX";
+const projectName = "IronWine";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)}- Generated with IronGenerator`;
+app.locals.title = `${projectName}`;
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);
+
+
+const signup = require("./routes/signup")
+app.use("/", signup);
+
+const login = require("./routes/login")
+app.use("/", login);
 
 const wine = require("./routes/wines.js");
 app.use("/", wine);

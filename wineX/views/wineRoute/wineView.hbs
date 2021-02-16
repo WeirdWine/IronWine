@@ -2,21 +2,18 @@
 
 
 
-
 <div class="wineBg" style="background-image: url('{{this.imgPath}}">
   	<h1>{{this.winename}}</h1>
-
 </div>
 <div class="infoWine">
   <div>
     <h2>Country: {{this.country}}</h2>
     <h2>Colour: {{this.colour}}</h2>
     <h2>Year: {{this.year}}</h2>
-    {{#if colour}}
     <h2>Good to: Cheese</h2>
   </div>
   <div>
-  <h2>Organic: {{this.bio}}</h2>
+  <h2 style="color:{{this.bgColour}}">Organic: {{this.bio}}</h2>
     <h2>Rating: {{this.rating}}</h2>
     <h2>Price: {{this.price}} €</h2>
   </div>

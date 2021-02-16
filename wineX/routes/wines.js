@@ -33,7 +33,7 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
       imgPath: req.file.path,
       imgName:req.file.originalname,
       publicId: req.file.filename,
-     owner: req.body.author,
+     owner: req.user.id,
       // shop: req.body.shop,
     comments:[{  user: req.user.id, comments: req.body.comments}],
     

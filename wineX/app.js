@@ -28,7 +28,6 @@ app.locals.title = `${projectName}`;
 const index = require("./routes/index");
 app.use("/", index);
 
-
 const signup = require("./routes/signup")
 app.use("/", signup);
 

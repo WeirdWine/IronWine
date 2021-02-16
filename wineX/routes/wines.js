@@ -3,7 +3,6 @@ const { uploader, cloudinary } = require("../config/cloudinary");
 const Wine = require("../models/Wine");
 const User = require("../models/User.model");
 const Shop = require("../models/Shop");
-const Comment = require("../models/Comment");
 
 
 

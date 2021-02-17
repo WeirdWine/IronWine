@@ -72,7 +72,6 @@ router.get("/wines", (req,res) => {
 
 /* Detail Wine Route (Logged In) */
 
-
 router.get("/wines/:id", async(req, res, next)=> {
     const selectedwineFromDB = await Wine.findById(req.params.id)
     .populate("comments"); 

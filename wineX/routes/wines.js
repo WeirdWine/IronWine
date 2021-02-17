@@ -72,7 +72,10 @@ router.get("/wines", (req,res) => {
 
 router.get("/wines/:id", (req,res) => {
   Wine.findById(req.params.id)
-  .populate('comments')
+  .populate({path:'comments',
+  populate: 'user',
+  model: 'User'
+})
   .then((selectedwineFromDB) => {
     
     let bgColour;
@@ -97,6 +100,5 @@ router.get("/wines/:id", (req,res) => {
       res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB, bgColour});
   })
 })
-
 
 module.exports = router;

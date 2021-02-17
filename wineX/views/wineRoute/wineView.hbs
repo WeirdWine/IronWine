@@ -7,10 +7,10 @@
 </div>
 <div class="infoWine">
   <div>
-    <h2>Country: {{displayBottle.country}}</h2>
-    <h2>Colour:  <span style="color:{{bgColour}}">&#8506;&#8506;&#8506;</span></h2>
+    <h2>Country: <img src="{{countryFlag}}"></h2>
+    <h2>Colour:  <span style="color:{{bgColour}}">&#8226;&#8226;&#8226;</span></h2>
     <h2>Year: {{displayBottle.year}}</h2>
-    <h2>Good to: Cheese</h2>
+    <h2>Goes well with: {{foodHex}}{{foodHex}}</h2>
   </div>
   <div>
   <h2>Organic: {{displayBottle.bio}}</h2>
@@ -21,7 +21,8 @@
 <div class="review">
   <h1>Review:</h1>
 
-  <h5>{{displayBottle.comments}}</h5>
+  <h5>{{displayBottle.comments.0.user}}</h5>
+  <h5>{{displayBottle.comments.0.comments}}</h5>
  
 </div>
 

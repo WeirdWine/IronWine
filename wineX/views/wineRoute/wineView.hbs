@@ -21,14 +21,17 @@
 <div class="review">
   <h1>Review:</h1>
 
-  <h5>{{displayBottle.comments.0.comments}}</h5>
-  <h5>{{displayBottle.comments.0.user.username}}</h5>
+{{#each displayBottle.comments}}
+<div>
+  <p><i>{{this.comments}}</i></p>
+  <span>{{this.user.username}}</span>
+</div>
+{{/each}}
 
-  <form action="/wineView" method="POST">
+  <form action="/wines/{{displayBottle._id}}/comments" method="POST">
     <label for="comment"></label> 
-  <input id="comment" type="text" name="firstName">
-  <button type="submit">Submit review</button>
+    <input id="comment" type="text" name="comment" placeholder="your review here...">
+    <button type="submit">Submit review</button>
 </form>
 
 </div>
-

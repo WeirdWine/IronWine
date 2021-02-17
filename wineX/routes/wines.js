@@ -55,6 +55,8 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
     
 })
 
+
+
 router.get("/wines", (req,res) => {
   if (!req.user) {
     res.redirect('/login');
@@ -69,12 +71,37 @@ router.get("/wines", (req,res) => {
   })
 })
 
+// Add comment to wineView
+
+router.post("/wines/:id/comments", (req, res, next) => {
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+    }
+  
+  const wineId = req.params.id
+  const user = req.user.id
+  const comment = req.body.comment
+  Wine.findOneAndUpdate({ _id: wineId }, { $push: { comments: {user: user, comments:comment}}})
+  .then(() => {
+    res.redirect(`/wines/${wineId}`);
+  })
+  .catch(err => {
+    console.log(err);
+  })
+})
 
 /* Detail Wine Route (Logged In) */
 
 router.get("/wines/:id", async(req, res, next)=> {
     const selectedwineFromDB = await Wine.findById(req.params.id)
-    .populate("comments"); 
+    .populate({
+      path: "comments",
+      populate:{
+        path: 'user',
+        model: 'User'
+      }
+    }); 
 
     const countryCode = await selectedwineFromDB.country;
     const country = await axios.get(`https://restcountries.eu/rest/v2/name/${countryCode}`);
@@ -112,5 +139,9 @@ router.get("/wines/:id", async(req, res, next)=> {
 res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB, bgColour, foodHex,countryFlag});
 
 })
+
+
+
+
 
 module.exports = router;

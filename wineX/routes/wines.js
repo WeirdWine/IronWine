@@ -3,6 +3,7 @@ const { uploader, cloudinary } = require("../config/cloudinary");
 const Wine = require("../models/Wine");
 const User = require("../models/User.model");
 const Shop = require("../models/Shop");
+const axios = require('axios').default;
 
 
 
@@ -34,6 +35,7 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
       imgName:req.file.originalname,
       publicId: req.file.filename,
      owner: req.user.id,
+     foodpairing: req.body.foodpairing,
       // shop: req.body.shop,
     comments:[{  user: req.user.id, comments: req.body.comments}],
     
@@ -70,33 +72,46 @@ router.get("/wines", (req,res) => {
 
 /* Detail Wine Route (Logged In) */
 
-router.get("/wines/:id", (req,res) => {
-  Wine.findById(req.params.id)
-  .populate('comments')
-  .then((selectedwineFromDB) => {
+
+router.get("/wines/:id", async(req, res, next)=> {
+    const selectedwineFromDB = await Wine.findById(req.params.id)
+    .populate("comments"); 
+
+    const countryCode = await selectedwineFromDB.country;
+    const country = await axios.get(`https://restcountries.eu/rest/v2/name/${countryCode}`);
+
+ const countryFlag= country.data[0].flag;
+ 
+ let bgColour;
+    let foodHex;
     
-    let bgColour;
-    let cheeseHex;
-    let meatHex;
-    let fruitHex;
-    let vegHex;
 
     console.log(selectedwineFromDB.colour)
     if(selectedwineFromDB.colour === "red" ){
       bgColour = 'red';
-    } else if( selectedwineFromDB.colour === "green"){
-      bgColour = 'green';
+    } else if( selectedwineFromDB.colour === "white"){
+      bgColour = '#cfc0a5';
     } else if(selectedwineFromDB.colour === "orange"){
       bgColour = 'orange';
     } else {
-      bgColour = '#cfc0a5';
+      bgColour = '#ffadcf';
+    }
+
+    if(selectedwineFromDB.foodpairing === "cheese" ){
+      foodHex = "🧀";
+    } else if(selectedwineFromDB.foodpairing === "meat") {
+      foodHex = "🥩";
+    } else if(selectedwineFromDB.foodpairing === "veg"){
+      foodHex = "🥗";
+    } else if(selectedwineFromDB.foodpairing === "fruit") {
+      foodHex = "🍓";
     }
 
 
-      console.log(selectedwineFromDB.winename);
-      res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB, bgColour});
-  })
-})
+  console.log(countryFlag);
 
+res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB, bgColour, foodHex,countryFlag});
+
+})
 
 module.exports = router;

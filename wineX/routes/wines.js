@@ -71,13 +71,30 @@ router.get("/wines", (req,res) => {
 /* Detail Wine Route (Logged In) */
 
 router.get("/wines/:id", (req,res) => {
-  Wine.findById(req.params.id).then((selectedwineFromDB) => {
-    let bgColour = '';
-    if(selectedwineFromDB.colour === 'red' ){
+  Wine.findById(req.params.id)
+  .populate('comments')
+  .then((selectedwineFromDB) => {
+    
+    let bgColour;
+    let cheeseHex;
+    let meatHex;
+    let fruitHex;
+    let vegHex;
+
+    console.log(selectedwineFromDB.colour)
+    if(selectedwineFromDB.colour === "red" ){
+      bgColour = 'red';
+    } else if( selectedwineFromDB.colour === "green"){
       bgColour = 'green';
+    } else if(selectedwineFromDB.colour === "orange"){
+      bgColour = 'orange';
+    } else {
+      bgColour = '#cfc0a5';
     }
+
+
       console.log(selectedwineFromDB.winename);
-      res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB, farbe:bgColour})
+      res.render("wineRoute/wineView", {displayBottle: selectedwineFromDB, bgColour});
   })
 })
 

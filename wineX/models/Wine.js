@@ -14,6 +14,7 @@ const wineSchema = new Schema({
       publicId: String,
       cheese: String,
       rating: Number,
+      foodpairing: String,
       owner: [{type: Schema.Types.ObjectId, ref: User}],
       shop: [{type: Schema.Types.ObjectId, ref: Shop}],
      

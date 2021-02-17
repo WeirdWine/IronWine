@@ -2,12 +2,20 @@
 
 
 
-<div class="wineBg" style="background-image: url('{{displayBottle.imgPath}}">
+<div class="wineBg" style="background-image: url({{displayBottle.imgPath}})">
+  <div class="wineBigInfo">
   	<h1>{{displayBottle.winename}}</h1>
+    	<h2>{{displayBottle.year}}</h2>
+      </div>
 </div>
 <div class="infoWine">
   <div>
-    <h2>Country: <img src="{{countryFlag}}"></h2>
+    <div class="flexCountry">
+    <h2>Country:&nbsp;</h2>
+    <div class="flagge"><img src="{{countryFlag}}"></div>
+    
+    </div>
+
     <h2>Colour:  <span style="color:{{bgColour}}">&#8226;&#8226;&#8226;</span></h2>
     <h2>Year: {{displayBottle.year}}</h2>
     <h2>Goes well with: {{foodHex}}{{foodHex}}</h2>

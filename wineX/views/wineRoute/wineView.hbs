@@ -1,28 +1,27 @@
-{{#with displayBottle}}
 
 
 
-<div class="wineBg" style="background-image: url('{{this.imgPath}}">
-  	<h1>{{this.winename}}</h1>
+
+<div class="wineBg" style="background-image: url('{{displayBottle.imgPath}}">
+  	<h1>{{displayBottle.winename}}</h1>
 </div>
 <div class="infoWine">
   <div>
-    <h2>Country: {{this.country}}</h2>
-    <h2>Colour: {{this.colour}}</h2>
-    <h2>Year: {{this.year}}</h2>
+    <h2>Country: {{displayBottle.country}}</h2>
+    <h2>Colour:  <span style="color:{{bgColour}}">&#8506;&#8506;&#8506;</span></h2>
+    <h2>Year: {{displayBottle.year}}</h2>
     <h2>Good to: Cheese</h2>
   </div>
   <div>
-  <h2 style="color:{{this.bgColour}}">Organic: {{this.bio}}</h2>
-    <h2>Rating: {{this.rating}}</h2>
-    <h2>Price: {{this.price}} €</h2>
+  <h2>Organic: {{displayBottle.bio}}</h2>
+    <h2>Rating: {{displayBottle.rating}}</h2>
+    <h2>Price: {{displayBottle.price}} €</h2>
   </div>
 </div>
 <div class="review">
   <h1>Review:</h1>
 
-  <h5>{{this.comments}}</h5>
+  <h5>{{displayBottle.comments}}</h5>
  
 </div>
 
-{{/with}}

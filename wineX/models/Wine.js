@@ -18,7 +18,7 @@ const wineSchema = new Schema({
       shop: [{type: Schema.Types.ObjectId, ref: Shop}],
      
       comments: [{
-       // user: {type: Schema.Types.ObjectId, ref: User},
+        user: {type: Schema.Types.ObjectId, ref: User},
         comments: String
       }]
       

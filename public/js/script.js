@@ -16,36 +16,24 @@ document.addEventListener(
 const dataCatcher = arrayfiedTargets.forEach((el) => {
   if(el.getAttribute("data-colour") === 'red'){
 
-  el.style.backgroundColor = '#D19F9F';
+  el.style.backgroundColor = '#ff6a5b';
 } else if(el.getAttribute("data-colour") === 'white') {
-  el.style.backgroundColor ='#F3F7FE'
+  el.style.backgroundColor ='#45e9a6';
+} else if(el.getAttribute("data-colour") === 'orange'){
+  el.style.backgroundColor = "#ffe955"
+} else if(el.getAttribute("data-colour") === 'rose') {
+  el.style.backgroundColor = "#114BF2"
+} else {
+  el.style.backgroundColor ='#F3F7FE';
 }
 })
 
 console.log(dataCatcher);
 
-
-/* Mouse effect landing */
-
-
-$(document).on("mousemove",function(ev){
-
-  var mouseX = ev.originalEvent.pageX;
-  var mouseY = ev.originalEvent.pageY;
-  
-    $("img").each(function(){
-      var imgX = $(this).position().left + 0;
-      var imgY =  $(this).position().top + 90;
-  
-      var diffX = mouseX - imgX;
-      var diffY = mouseY - imgY;
-  
-      var radians = Math.atan2(diffY,diffX);
-  
-      var angle = radians * 360 / Math.PI
-  
-      $(this).css("transform","rotate("+ angle + "deg)")
-  
-    })
-  
-  });
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbWFkYW14IiwiYSI6ImNrbGI1M3Y5djBiN3MydW8xbTd3MHppdjAifQ.DbSeEgXsZugtVDeSYGSNOg';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/adamadamx/cklb5e7xz2jvk17nsiv4hhw5p', // style URL
+center: [ 13.388860,  52.517036], // starting position [lng, lat]
+zoom: 12 // starting zoom
+});

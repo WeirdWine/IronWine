@@ -67,21 +67,9 @@ router.get("/wines", (req,res) => {
   Wine.find().then(winesFromDB => {
       console.log(winesFromDB)
 
-let wineAllBg; 
+      
 
-      if(winesFromDB.colour === "red" ){
-        wineAllBg = 'red';
-      } else if( winesFromDB.colour === "white"){
-        wineAllBg = '#cfc0a5';
-      } else if(winesFromDB.colour === "orange"){
-        wineAllBg = 'orange';
-      } else {
-        wineAllBg = '#ffadcf';
-      }
-
-      console.log('This is the background-wine colour speaking:', wineAllBg)
-
-      res.render('wineRoute/wines', {allWines:winesFromDB, wineAllBg })
+      res.render('wineRoute/wines', {allWines:winesFromDB, user: req.user.firstName })
   }).catch(error => {
     console.log('sth went wrong while requesting all the wines from the DB', error);
   })

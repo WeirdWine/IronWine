@@ -1,10 +1,8 @@
 body {
 
 
-  font: 14px  'Roboto', sans-serif; 
-
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
-
+  font-size: 14px ;
+  font-family: 'Roboto', sans-serif;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -17,7 +15,7 @@ font-family: 'Abril Fatface', cursive;
 font-family: 'Roboto', sans-serif;
 */
  @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+ 
 
 
 
@@ -27,7 +25,7 @@ font-family: 'Roboto', sans-serif;
   width: 100%;
   height: 100%;
   position: relative;
-background-color: #ffd2d2;
+background-color:white;
 }
 
 .indexIntroTop{
@@ -40,7 +38,7 @@ background-color: #ffd2d2;
 .indexbottomBackground{
   width: 100%;
   height: 30%;
-background-color: #f01e1e;
+background-color: #ff6a5b;
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -48,38 +46,144 @@ background-color: #f01e1e;
 }
 
 .indexFont{
-  font-size: 8vw;
+  font-size: clamp(60px, 6vw, 8vw); 
   font-family: 'Abril Fatface', cursive;
   letter-spacing: 1.2px;
   line-height: 120%;
   padding-left: 5%;
   margin: 0;
-  color: #262a44  ;
+  color: black  ;
 }
 
 .indexbottomBackground a {
   text-decoration: none;
   margin-left: 5%;
-  font-size: 1.7vw;
   padding-top: 60px;
+  padding-bottom: 10px;
 color: white;
+font-family: 'Abril Fatface', cursive;
+letter-spacing: 1.2px;
+font-size: clamp(20px, 1.8vw, 2vw); 
 }
 
 .indexAppetizer{
-  font-size: 1.7vw;
   margin-left: 5%;
   font-weight: 100;
   color: #676767;
   line-height: 140%;
-
+  font-size: clamp(20px, 1.8vw, 2vw); 
+  margin-top: 60px;
 }
 
 
+
+  /* Underline From Left */
+  .hvr-underline-from-left {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+  }
+  .hvr-underline-from-left:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0px;
+    background: white;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+    right: 0;
+  }
+
   /*Sign up Styles*/
   .signupwrapper{
-    width: 90%;
+    width: 100%;
    margin: 0 auto;
+   display: flex;
+    height: 100%;
   }
+
+  .signupwrapper form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+  }
+
+  .signupwrapper form label {
+    margin-top: 10%;
+  }
+
+  .signupwrapper form input {
+   padding: 10px;
+   border-radius: 5px;
+  border: 2px solid #eeeeee;
+   background-color: #eeeeee;
+  }
+
+  .signupwrapper button {
+    margin-top: 10%;
+    padding: 20px;
+    width: 50%;
+    background-color: black;
+    border-radius: 5px ;
+    border: none;
+  }
+
+.loginWhite{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginTeaser{
+  width: 50%;
+  height: 100vh;
+  background-color: #45e9a6;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupFont{
+  font-size: clamp(60px, 5vw, 6vw); 
+  font-family: 'Abril Fatface', cursive;
+}
+
+input[type="text"], input[type="password"] input[type="file"], textarea, select { 
+  outline: none;
+}
+input[type="file"] {
+  display: none;
+}
+
+
+#dateOfBirth{
+  font-family:   'Roboto', sans-serif;;
+}
+
+.photo {
+  padding: 10px;
+  border-radius: 5px;
+ border: 2px solid #eeeeee;
+  background-color: #eeeeee;
+}
 
   /*Login Styles*/
 
@@ -91,19 +195,54 @@ color: white;
  /* addWine.hbs styles */
 
   .addWineWrapper{
-    width: 90%;
-    margin: 0 auto;
-    
+    width: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .addWineLeft{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .addWineRight{
+    width: 50%;
+    height: 100vh;
+    background-color: #ffbb54;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .addWineWrapper form{
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 40%;
 
   }
   .addWineWrapper form input{
     margin-top: 3px;
+    border-radius: 5px;
+   border: 2px solid #eeeeee;
+    background-color: #eeeeee;
+    padding: 10px;
+  }
+
+  .addWineWrapper form select {
+    margin-top: 3px;
+    border-radius: 5px;
+   border: 2px solid #eeeeee;
+    background-color: #eeeeee;
+    padding: 5px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
   }
 
   .addWineWrapper form label{
@@ -111,8 +250,7 @@ color: white;
   }
 
   .addWineWrapper form #comments{
-    width: 100%;
-    height: 20vh;
+    height: 10vh;
   }
 
   textarea{
@@ -122,10 +260,16 @@ color: white;
 
   .addWineWrapper form button{
     margin-top: 20px;
-    background-color: lightblue;
-    border: none;
+    color: white;
     padding: 30px;
+    background-color: black;
+    border-radius: 5px;
+    border: 0;
   }
+
+
+
+
 
 /*# sourceMappingURL=style.css.map */
 
@@ -140,36 +284,114 @@ color: white;
 
  }
 
- .allwineWrapper div {
+ .allwineWrapper .allWinesSelectWine {
   width: 20%;
   height: 35%;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  overflow: hidden;
+  padding: 1px;
   border-radius: 5px;
-  background-color: lightblue;
  }
 
- .allwineWrapper div .imgB {
+ .allwineWrapper .allWinesSelectWine .imgB {
   width: 100%;
-  height: 60%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  
  }
 
- .allwineWrapper div h3 {
+ .allwineWrapper .allWinesSelectWine h3 {
   padding-left: 10px;
  }
 
- .allwineWrapper div a {
+ .allwineWrapper .allWinesSelectWine a {
   padding-left: 10px;
   text-decoration: none;
   color: black;
  }
+
+.backgroundImageallWine{
+  height: 60%;
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.allWineInfo{
+  height: 40%;
+  width: 100%;
+  border-radius: 0px 0px 5px 5px;
+}
+
+ .topWines{
+   
+   width: 90%;
+   margin: 0 auto;
+   display: flex;
+ 
+ }
+
+.leftTopWines{
+  width: 50%;
+}
+
+.rightTopWines{
+  width: 50%;
+  display: flex;
+  justify-content: right;
+  align-items:flex-end;
+}
+
+.rightTopWines h2 {
+  font-size: clamp(40px, 3vw, 2vw);
+}
+
+ .winesHello{
+  font-size: clamp(60px, 6vw, 8vw);
+  font-family: 'Abril Fatface', cursive;
+ }
+
+ @-webkit-keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+.hvr-pulse {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
 
   /* wineView.hbs styles */
  

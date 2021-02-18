@@ -1,12 +1,28 @@
 
-<div class="allwineWrapper">
-{{#each allWines}}
-<div>
-  
-        <div class="imgB" style="background-image: url('{{this.imgPath}}"></div>
 
+    <div class="topWines">
+      <div class="leftTopWines">
+        <h1 class="winesHello">
+          Hi, conosiuer
+thats what the town
+is drinking…
+        </h1>
+      </div>
+      <div class="rightTopWines">
+        <h2>Add Wine<br><a href="/addwine" style="color:#5B92EB; text-decoration:none" class="hvr-pulse">+</a></h2>
+      </div>
+    </div>
+    <div class="allwineWrapper">
+{{#each allWines}}
+<div class="allWinesSelectWine" data-colour="{{this.colour}}">
+  <div class="backgroundImageallWine">
+        <div class="imgB" style="background-image: url('{{this.imgPath}}"></div>
+</div>
+<div class="allWineInfo" data-colour="{{this.colour}}">
       <h3>{{this.winename}}</h3>
+       <h3 id="wineColour">{{this.colour}}</h3>
       <a href="/wines/{{this._id}}">Check it out</a>
+      </div>
 </div>
 {{/each}}
 </div>

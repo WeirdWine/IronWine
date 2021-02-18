@@ -1,14 +1,17 @@
 <div class="signupwrapper">
-<h2>Sign up page</h2>
+    <div class="loginWhite">
+
 
 <form action="/signup" method="POST" enctype="multipart/form-data">
-    <label for="firstName">First name</label> 
+    <h1>Sign Up</h1>
+    
+    <label for="firstName">Firstname</label> 
   <input id="firstName" type="text" name="firstName">
   <br>
   <label for="surname">Surname</label> 
   <input id="surname" type="text" name="surname">
   <br>
-  <label for="username">User name</label> 
+  <label for="username">Username</label> 
   <input id="username" type="text" name="username">
   <br>
   <label for="email">Email</label> 
@@ -20,12 +23,17 @@
   <label for="dateOfBirth">Date of birth</label> 
   <input id="dateOfBirth" type="date" name="dateOfBirth">
   <br>
-  <label for="imgPath">Photo </label>
-  <input type="file" name="photo" id="photo">
+  <label for="imgPath" class="photo">Upload  Photo 
+  <input type="file" name="photo" id="imgPath" aria-label="File browser example">
+  </label>
   <br>
-  <button type="submit">Create account</button>
+  <button type="submit" style="color: white;">Create account</button>
 </form>
 {{#if message}}
   <p style='color: red'>{{message}}</p>
 {{/if}}
+</div>
+<div class="loginTeaser">
+  <h1 class="signupFont">PSST!<br> Just one more <br>step...</h1>
+</div>
 </div>

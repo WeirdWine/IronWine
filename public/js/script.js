@@ -13,6 +13,8 @@ document.addEventListener(
 
 );
 
+geocoder.addTo('#geocoder');
+
 const dataCatcher = arrayfiedTargets.forEach((el) => {
   if(el.getAttribute("data-colour") === 'red'){
 
@@ -26,6 +28,7 @@ console.log(dataCatcher);
 
 
 /* Mouse effect landing */
+
 
 $(document).on("mousemove",function(ev){
 

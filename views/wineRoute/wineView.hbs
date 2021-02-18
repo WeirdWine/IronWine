@@ -27,10 +27,7 @@
   </div>
 </div>
 
-  
-<div class="review">
-
-<h1>Share:</h1>
+<h1 class="shareH1">Share:</h1>
 
 <div class="socials">
 
@@ -62,28 +59,40 @@
 </a>
 
 </div>
+  
+<div class="review">
 
   <h1>Review:</h1>
 {{#each displayBottle.comments}}
-<div>
-  <div class="userImage" style="background-image: url({{this.user.imgPath}});"></div>
+<div class="eachReview">
   <p><i>{{this.comments}}</i></p>
   <span>{{this.user.username}}</span>
+  <div class="userImage" style="background-image: url({{this.user.imgPath}});"></div>
 </div>
 {{/each}}
 
-  <form action="/wines/{{displayBottle._id}}/comments" method="POST" class="reviewform">
+  <div class="yourReview">
+    <form action="/wines/{{displayBottle._id}}/comments" method="POST" class="reviewform">
     <label for="comment"></label> 
     <input id="comment" type="text" name="comment" placeholder="your review here...">
     <button type="submit" class="reviewSub">Submit review</button>
 </form>
+</div>
+  
+
+
 <div class="shopInfo">
 <h1>Where to get it:</h1>
-<h2 style="margin-top: 0;padding:0px; font-weight: 200">Wine Rocket<br>
-Suarezstr, 10115<br>
-Berlin
+<h2 style="margin-top: 0;padding:0px; font-weight: 200"><br>
 </h2>
+<p>{{displayBottle.stockist}}
+  <br>
+  Strassestr. 69<br>
+  Berlin
+</p>
 </div>
+
+<a href="/wines">Back to wines</a>
 
 </div>
 <div id="map"></div>

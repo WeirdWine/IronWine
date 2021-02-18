@@ -46,7 +46,7 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
       
 
     }).then((dataToDB)=> {
-        console.log('Data has been successfully added to the Dabase', dataToDB)
+        //console.log('Data has been successfully added to the Dabase', dataToDB)
      
   
         res.redirect(`/wines/${dataToDB._id}`);
@@ -65,7 +65,7 @@ router.get("/wines", (req,res) => {
     }
 
   Wine.find().then(winesFromDB => {
-      console.log(winesFromDB)
+      //console.log(winesFromDB)
 
       
 

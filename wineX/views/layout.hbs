@@ -7,11 +7,27 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{{title}}</title>
       <link rel="stylesheet" href="/stylesheets/style.css" />
+       <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+       <script src="p5.min.js"></script>
+<script src="vanta.topology.min.js"></script>
+
    </head>
 
    <body>
 
       {{{body}}}
+
+<script>
+ var typed = new Typed('.cello', {
+  strings: ['Find ^1000', 'Drink', 'Enjoy', 'Discover', 'Share'],
+  typeSpeed: 100,
+   backSpeed: 100,
+   backDelay: 2000,
+     loop: true,
+      smartBackspace: false,
+      showCursor: false,
+});
+</script>
 
       <script src="/js/script.js"></script>
 

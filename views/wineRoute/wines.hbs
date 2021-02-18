@@ -3,7 +3,7 @@
     <div class="topWines">
       <div class="leftTopWines">
         <h1 class="winesHello">
-          Hi, conosiuer
+          Hey <span style="color: blue;">{{user}}</span>, <br>
 thats what the town
 is drinking…
         </h1>
@@ -20,8 +20,8 @@ is drinking…
 </div>
 <div class="allWineInfo" data-colour="{{this.colour}}">
       <h3>{{this.winename}}</h3>
-       <h3 id="wineColour">{{this.colour}}</h3>
-      <a href="/wines/{{this._id}}">Check it out</a>
+       <h3 id="wineColour">{{this.colour}} wine</h3>
+      <a href="/wines/{{this._id}}" class="inspectwine">Check it out</a>
       </div>
 </div>
 {{/each}}

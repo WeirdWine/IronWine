@@ -5,8 +5,10 @@ const Shop = require("./Shop");
 
 const wineSchema = new Schema({
       winename: String,
+      vineyard: String,
       year: String,
       price: Number,
+      stockist: String,
       colour: String,
       bio: Boolean,
       country: String,

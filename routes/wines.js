@@ -25,8 +25,10 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
   console.log(req.body.comments);
     Wine.create({
      winename: req.body.winename,
+     vineyard: req.body.vineyard,
       year: req.body.year,
       price: req.body.price,
+      stockist: req.body.stockist,
       colour: req.body.colour,
       bio: req.body.bio,
       rating: req.body.rating,
@@ -36,7 +38,6 @@ router.post("/addwine", uploader.single('photo'), (req,res) => {
       publicId: req.file.filename,
      owner: req.user.id,
      foodpairing: req.body.foodpairing,
-      // shop: req.body.shop,
     comments:[{  user: req.user.id, comments: req.body.comments}],
     
     cheese: null,

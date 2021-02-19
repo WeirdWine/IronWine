@@ -42,7 +42,6 @@ background-color: #ff6a5b;
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  border-radius: 6px;
 }
 
 .indexFont{
@@ -527,6 +526,20 @@ left: 10%;
     height: 60%;
 }
 
+.shareH1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: clamp(60px,4vw,5vw);
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.socials{
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
 .review{
   width: 80%;
   margin: 0 auto;
@@ -562,6 +575,10 @@ left: 10%;
   font-weight: 200;
 }
 .reviewform{
+}
+
+.yourReview{
+  padding-top: 10px;
 }
 
 .reviewform input{
@@ -686,14 +703,6 @@ left: 10%;
   background-color: #2795e9
 }
 
-.resp-sharing-button--pinterest {
-  background-color: #bd081c
-}
-
-.resp-sharing-button--pinterest:hover {
-  background-color: #8c0615
-}
-
 .resp-sharing-button--facebook {
   background-color: #3b5998
 }
@@ -702,73 +711,12 @@ left: 10%;
   background-color: #2d4373
 }
 
-.resp-sharing-button--tumblr {
-  background-color: #35465C
-}
-
-.resp-sharing-button--tumblr:hover {
-  background-color: #222d3c
-}
-
-.resp-sharing-button--reddit {
-  background-color: #5f99cf
-}
-
-.resp-sharing-button--reddit:hover {
-  background-color: #3a80c1
-}
-
-.resp-sharing-button--google {
-  background-color: #dd4b39
-}
-
-.resp-sharing-button--google:hover {
-  background-color: #c23321
-}
-
-.resp-sharing-button--linkedin {
-  background-color: #0077b5
-}
-
-.resp-sharing-button--linkedin:hover {
-  background-color: #046293
-}
-
 .resp-sharing-button--email {
   background-color: #777
 }
 
 .resp-sharing-button--email:hover {
   background-color: #5e5e5e
-}
-
-.resp-sharing-button--xing {
-  background-color: #1a7576
-}
-
-.resp-sharing-button--xing:hover {
-  background-color: #114c4c
-}
-
-.resp-sharing-button--whatsapp {
-  background-color: #25D366
-}
-
-.resp-sharing-button--whatsapp:hover {
-  background-color: #1da851
-}
-
-.resp-sharing-button--hackernews {
-background-color: #FF6600
-}
-.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
-
-.resp-sharing-button--vk {
-  background-color: #507299
-}
-
-.resp-sharing-button--vk:hover {
-  background-color: #43648c
 }
 
 .resp-sharing-button--facebook {
@@ -791,17 +739,6 @@ background-color: #FF6600
 .resp-sharing-button--twitter:active {
   background-color: #2795e9;
   border-color: #2795e9;
-}
-
-.resp-sharing-button--tumblr {
-  background-color: #35465C;
-  border-color: #35465C;
-}
-
-.resp-sharing-button--tumblr:hover,
-.resp-sharing-button--tumblr:active {
-  background-color: #222d3c;
-  border-color: #222d3c;
 }
 
 .resp-sharing-button--email {

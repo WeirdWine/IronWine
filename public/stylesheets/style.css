@@ -531,7 +531,7 @@ left: 10%;
   width: 80%;
   margin: 0 auto;
   position: relative;
-  height: 100vh;
+
 }
 
 .review .userImage{
@@ -824,6 +824,7 @@ background-color: #FF6600
 .resp-sharing-button--pinterest:active {
   background-color: #8c0615;
   border-color: #8c0615;
+}
 
 button:hover {
   background-color: rgb(69, 233, 166);
